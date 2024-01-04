@@ -1,0 +1,23 @@
+.h2-shadow-dark{
+    text-shadow: 2px 2px 4px rgba(133, 88, 216, 0.6);
+}
+
+.h2-shadow-light{
+    text-shadow: 2px 2px 4px rgba(58, 172, 151, 0.6);
+}
+.fill-animation {
+    animation: fillAnimation 1.2s ease-in-out forwards;
+    transform-origin: bottom; /* Set transform origin to bottom for vertical expansion */
+  }
+  
+  @keyframes fillAnimation {
+    from {
+      transform: scaleY(0);
+      opacity: 0;
+    }
+    to {
+      transform: scaleY(1);
+      opacity: 1;
+    }
+  }
+  

@@ -1,0 +1,30 @@
+{
+  "name": "portfolio_backend",
+  "version": "1.0.0",
+  "description": "backend for the personal portfolio",
+  "main": "app.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "keywords": [
+    "porfolio",
+    "mern"
+  ],
+  "author": "Hussnain Ali",
+  "license": "ISC",
+  "dependencies": {
+    "cloudinary": "^1.41.0",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "jsonwebtoken": "^9.0.2",
+    "mongoos": "^0.0.1-security",
+    "mongoose": "^8.0.1",
+    "nodemailer": "^6.9.7",
+    "nodemon": "^3.0.1"
+  }
+}

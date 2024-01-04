@@ -1,0 +1,31 @@
+.before-element {
+  content: "";
+  width: 0;
+  height: 100%;
+  position: absolute;
+  background-color: #fff;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  transition: width 0.3s ease-in-out;
+}
+
+.before-element-light {
+  content: "";
+  width: 0;
+  height: 100%;
+  position: absolute;
+  background-color: #ae9f9f;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  transition: width 0.3s ease-in-out;
+}
+/* Add group hover styles */
+.group:hover .before-element {
+  width: 100%;
+}
+
+.group:hover .before-element-light {
+  width: 100%;
+}

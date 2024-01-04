@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body{
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    background-color: #555;
+}
+.imageButton::-webkit-file-upload-button{
+    cursor:pointer;
+    width: 0;
+    visibility:hidden;
+}
+
+.imageButton::file-selector-button{
+    
+    cursor:pointer;
+    width: 0;
+    visibility:hidden;
+}
+.darkCalendar::-webkit-calendar-picker-indicator{
+    filter: invert(1);
+    cursor: pointer;
+}
+
+.lightCalendar::-webkit-calendar-picker-indicator{
+    filter: invert(0);
+    cursor: pointer;
+}
+ /* width */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+  cursor: pointer;
+  border-radius: 3rem;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  cursor: pointer;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+} 
+
