@@ -138,7 +138,7 @@ const getExperiences=async(req,res)=>{
 
 const updateUser = async (req, res) => {
   try {
-    const user = await User.findById(req.user._id);
+    const user = await User.findById(req?.user?._id);
 
     const { name, email, password, about } = req.body;
 
@@ -192,7 +192,7 @@ const updateProject=async(req,res)=>{
   try{
     const user=await User.findOne().select("-email -password")
     
-    const projectIndex = user?.projects?.findIndex(project => project._id.toString() === projectId);
+    const projectIndex = user?.projects?.findIndex(project => project?._id.toString() === projectId);
     
     if (projectIndex === -1) {
       return res.status(404).json({
@@ -265,7 +265,7 @@ const updateSkill=async(req,res)=>{
   const {id}=req.params
   try {
     const user=await User.findOne().select("-password -email")
-    const skillIndex=user?.skills?.findIndex((skill)=>skill._id.toString()===id)
+    const skillIndex=user?.skills?.findIndex((skill)=>skill?._id.toString()===id)
     if (skillIndex === -1) {
       return res.status(404).json({
         success: false,
@@ -322,7 +322,7 @@ const updateExperience=async(req,res)=>{
   const {id}=req.params
   try {
     const user=await User.findOne().select("-password -email")
-    const experienceIndex=user?.experiences?.findIndex((experience)=>experience._id.toString()===id)
+    const experienceIndex=user?.experiences?.findIndex((experience)=>experience?._id.toString()===id)
     if (experienceIndex === -1) {
       return res.status(404).json({
         success: false,
@@ -391,7 +391,7 @@ const updateEducation=async(req,res)=>{
   const {id}=req.params
   try {
     const user=await User.findOne().select("-password -email")
-    const educationIndex=user?.educations?.findIndex((education)=>education._id.toString()===id)
+    const educationIndex=user?.educations?.findIndex((education)=>education?._id.toString()===id)
     if (educationIndex === -1) {
       return res.status(404).json({
         success: false,
@@ -547,7 +547,7 @@ const contact = async (req, res) => {
 const addTimeline = async (req, res) => {
   try {
     const { title, description, date } = req.body;
-    const user = await User.findOne(req.user._id);
+    const user = await User.findOne(req?.user?._id);
 
     user.timeline.unshift({
       title,
@@ -572,7 +572,7 @@ const addTimeline = async (req, res) => {
 const addSkill = async (req, res) => {
   try {
     const { name, image,category } = req.body;
-    const user = await User.findOne(req.user._id);
+    const user = await User.findOne(req?.user?._id);
     let myCloud=null
     if(image!=="")
     {
@@ -660,7 +660,7 @@ const addProjects = async (req, res) => {
 const addEducation=async(req,res)=>{
     try {
         const {institution,description,degree,image,fromDate,toDate,field,grade}=req.body;
-        const user=await User.findOne(req.user._id)
+        const user=await User.findOne(req?.user?._id)
         let myCloud=null
     if(image!=="")
     {
@@ -705,7 +705,7 @@ const addEducation=async(req,res)=>{
 const addExperience=async(req,res)=>{
     try {
         const {company,position,toDate,fromDate,description,skills,image}=req.body;
-        const user=await User.findOne(req.user._id)
+        const user=await User.findOne(req?.user?._id)
         if(image!=="")
         {
           myCloud= await cloudinary.v2.uploader.upload(image, {
@@ -749,7 +749,7 @@ const deleteTimeline=async(req,res)=>{
     try {
         const {id}=req.params;
 
-        const user=await User.findId(req.user._id)
+        const user=await User.findId(req?.user?._id)
 
         user.timeline=user.timeline.filter(item=>item._id!==id)
 
@@ -772,7 +772,7 @@ const deleteSkill=async(req,res)=>{
     try {
         const {id}=req.params;
 
-        const user=await User.findById(req.user._id)
+        const user=await User.findById(req?.user?._id)
         
         const skillIndex = user?.skills?.findIndex(skill => skill._id.toString() === id);
     
@@ -806,7 +806,7 @@ const deleteProject=async(req,res)=>{
     try {
         const {id}=req.params;
 
-        const user=await User.findById(req.user._id)
+        const user=await User.findById(req?.user?._id)
         const projectIndex = user?.projects?.findIndex(project => project._id.toString() === id);
     
         if (projectIndex === -1) {
@@ -841,7 +841,7 @@ const deleteExperience=async(req,res)=>{
     try {
         const {id}=req.params;
 
-        const user=await User.findById(req.user._id)
+        const user=await User.findById(req?.user?._id)
 
         const experienceIndex = user?.experiences?.findIndex(experience => experience._id.toString() === id);
     
@@ -875,7 +875,7 @@ const deleteEducation=async(req,res)=>{
     try {
         const {id}=req.params;
 
-        const user=await User.findById(req.user._id)
+        const user=await User.findById(req?.user?._id)
         const educationIndex = user?.educations?.findIndex(education => education._id.toString() === id);
     
         if (educationIndex === -1) {
