@@ -18,8 +18,10 @@ const NavBar = () => {
   const [toggleNav,setToggleNav]=useState(false)
   useEffect(() => {
     const handleResize = () => {
-  
-      setVerticalNav(window.innerWidth <= 600); // Update verticalNav based on width
+      if(toggleNav){
+        setVerticalNav(window.innerWidth <= 600); // Update verticalNav based on width
+
+      }
     };
 
     window.addEventListener("resize", handleResize);
