@@ -372,7 +372,8 @@ const NavBar = () => {
             ? `text-zinc-400 `
             : `${theme === "dark" ? "text-white" : "text-zinc-500"}`
         }`}
-        onClick={() => {
+        onClick={(e) => {
+          e.preventDefault()
           setVerticalNav(!verticalNav)
           setToggleNav(!toggleNav)
         }}

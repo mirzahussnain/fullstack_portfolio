@@ -526,7 +526,7 @@ const myProfile = async (req, res) => {
 const contact = async (req, res) => {
   try {
     const { name, email, message,subject } = req.body;
-    const userMessage = `Hi there, I am ${name}!\nMessage- ${message}.`;
+    const userMessage = `Email: ${email}\nMessage: ${message}`;
     const contactDetails={name:name,email:email,message:userMessage,subject:subject}
     
 

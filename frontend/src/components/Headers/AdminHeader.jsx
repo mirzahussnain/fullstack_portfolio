@@ -22,9 +22,20 @@ const AdminHeader = ({ title }) => {
         withCredentials: true,
       });
 
-      toast.success(response?.data?.message);
-      localStorage.removeItem("isAuthenticated");
-      setIsAuthenticated(false);
+      
+      if(response?.status===200){
+        setTimeout(()=>{
+          localStorage.removeItem("isAuthenticated");
+          setIsAuthenticated(false);
+
+        },[2000])
+        toast.success(response?.data?.message);
+        
+      }
+      else{
+        throw new Error(response?.error?.data?.message)
+      }
+
     } catch (error) {
       toast.error(error.message);
     }

@@ -2,6 +2,7 @@ import { useContext,useState } from 'react'
 import contactMe from '../../../assets/images/contact-img.svg'
 import { AppContext } from '../../../utils/context/store'
 import axios from 'axios';
+import toast from 'react-hot-toast';
 const BASE_URL = import.meta.env.VITE_REACT_APP_SERVER_BASE_URL;
 const Contact = () => {
     const {theme:[theme]}=useContext(AppContext)
@@ -34,16 +35,15 @@ const handleSubmit=async(e)=>{
             },
             withCredentials: true
         });
-        if(response?.status==='200')
-        {
-            alert(response?.data?.message)
-        }
-        else{
-            throw new Error(response?.data?.message)
-        }
+       
+            toast.success(response?.data?.message)
+            setContactDetails({
+              name:"",subject:"",email:"",message:""
+            })
+       
         
     } catch (error) {
-        alert(error.message)
+        toast.error(error.message)
     }
     finally{
         setButtonText(`Send`)
