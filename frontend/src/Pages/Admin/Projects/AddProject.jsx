@@ -189,17 +189,21 @@ const AddProject = () => {
       relative transition-colors duration-300`}
           >
           <FontAwesomeIcon icon={faLayerGroup} className={`${theme==='dark'?'text-purple-500':'text-teal-400'}`}/>
-            <input
+            <select
               id="category"
               type="text"
               name="category"
-              placeholder="Enter Category"
+              placeholder="Select Category"
               value={projectData.category}
               required
               autoComplete="off"
-              className={`ml-2 w-full placeholder-transparent peer outline-none bg-transparent`}
-              onChange={(e)=>handleDataChange(e)}
-              />
+              className={`ml-2 w-full placeholder-transparent peer outline-none cursor-pointer bg-transparent `}
+              onChange={(e)=>handleDataChange(e) }
+              >
+              <option value="Web Applications" className='text-black'>Web Applications</option>
+              <option value="Desktop Applications" className='text-black'>Desktop Applications</option>
+              <option value="Mobile Applications" className='text-black'>Mobile Applications</option>
+              </select>
             <label
               htmlFor="category"
               className={`${
