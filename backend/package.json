@@ -4,6 +4,9 @@
   "description": "backend for the personal portfolio",
   "main": "app.js",
   "type": "commonjs",
+  "engines":{
+    "node":"14.x"
+  },
   "scripts": {
     "start": "node app.js",
     "dev": "nodemon app.js"
