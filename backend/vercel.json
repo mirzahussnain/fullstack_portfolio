@@ -2,11 +2,11 @@
     "version":2,
     "builds":[
         {
-            "src":"./app.js",
+            "src":"/app.js",
             "use":"@vercel/node"
         }
     ],
     "rewrites":  [
-      {"source": "/backend/(.*)", "destination": "/"}
+      {"source": "/(.*)", "destination": "/"}
     ]
   }
