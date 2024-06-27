@@ -17,6 +17,17 @@ cloudinary.config({
 })
 
 const app=express()
+
+// Timeout middleware
+const TIMEOUT = 60000; // 60 seconds
+
+app.use((req, res, next) => {
+  res.setTimeout(TIMEOUT, () => {
+    res.status(503).json({ error: "Request timed out" });
+  });
+  next();
+});
+
 app.use(express.json({limit:"50mb"}))
 app.use(express.urlencoded({limit:"50mb",extended:true}))
 app.use(cookieParser())
